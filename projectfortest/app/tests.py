@@ -1,10 +1,32 @@
+from django.test import Client
+from app.number import Number
+from app.models import SampleModel
+from unittest.mock import MagicMock
 from django.test import TestCase
 from app.square import Square
+from testfixtures import compare
+
 
 # Create your tests here.
 
+
 class SquareTest(TestCase):
+
+    def setUp(self):
+        print("setUp")
+
+    def tearDown(self):
+        print("tearDown")
+
+    def test_compare(self):
+        print("test compare")
+        a = {"a": 1, "b": 2}
+        b = {"a": 1, "b": 3}
+        # self.assertEqual(a, b)
+        compare(a, b)
+
     def test_square(self):
+        print("test square")
         square = Square()
 
         # 2の2乗は4
@@ -15,8 +37,6 @@ class SquareTest(TestCase):
         result = square.square(3)
         self.assertEqual(result, 9)
 
-from app.number import Number
-from unittest.mock import MagicMock
 
 class NumberTest(TestCase):
     """Number クラスのテスト"""

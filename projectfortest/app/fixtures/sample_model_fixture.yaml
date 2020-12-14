@@ -1,0 +1,4 @@
+- model: app.SampleModel
+  pk: 1
+  fields:
+    name: "サンプルモデル"

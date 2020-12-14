@@ -23,7 +23,7 @@ class SquareTest(TestCase):
         a = {"a": 1, "b": 2}
         b = {"a": 1, "b": 3}
         # self.assertEqual(a, b)
-        compare(a, b)
+        # compare(a, b)
 
     def test_square(self):
         print("test square")
@@ -62,3 +62,12 @@ class NumberTest(TestCase):
         #  x 引数（0番目の引数 args[0]）の値は 2
         args, kwargs = square_mock.square.call_args_list[0]
         self.assertEqual(args[0], 2)
+
+
+class SampleModelTest(TestCase):
+    fixtures = ['sample_model_fixture.yaml']
+
+    def test_get(self):
+        result = SampleModel.objects.all()
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].name, "サンプルモデル")

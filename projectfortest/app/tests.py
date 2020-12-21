@@ -13,20 +13,22 @@ from testfixtures import compare
 class SquareTest(TestCase):
 
     def setUp(self):
-        print("setUp")
+        # print("setUp")
+        pass
 
     def tearDown(self):
-        print("tearDown")
+        # print("tearDown")
+        pass
 
     def test_compare(self):
-        print("test compare")
+        # print("test compare")
         a = {"a": 1, "b": 2}
         b = {"a": 1, "b": 3}
         # self.assertEqual(a, b)
         # compare(a, b)
 
     def test_square(self):
-        print("test square")
+        # rint("test square")
         square = Square()
 
         # 2の2乗は4
@@ -71,3 +73,11 @@ class SampleModelTest(TestCase):
         result = SampleModel.objects.all()
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0].name, "サンプルモデル")
+
+
+class RequestTest(TestCase):
+    def test_request(self):
+        c = Client()
+        response = c.get('/test/')
+        self.assertEqual(400, response.status_code)
+        # print(response.content)

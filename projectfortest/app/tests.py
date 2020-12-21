@@ -79,5 +79,5 @@ class RequestTest(TestCase):
     def test_request(self):
         c = Client()
         response = c.get('/test/')
-        self.assertEqual(400, response.status_code)
+        self.assertEqual(200, response.status_code)
         # print(response.content)
